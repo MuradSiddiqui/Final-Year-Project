@@ -4,7 +4,6 @@ const Cryptr = require('cryptr');
 const cryptr = new Cryptr('myTotallySecretKey');
 const STRIPE_PRIVATE_KEY = 'abc';
 const stripe = require('stripe')(
-  'sk_test_51LadFJJAYW0LamAcQF1m3UnYQ5CNwNmpZwrICS3IQ6Rjgau1R4JKtqhvovtdaLnkC6BKntQTZrDkWoeo6LyMvztM00zAobeJ4t'
 );
 
 const showLoginPage = async (req, res) => {
