@@ -1,0 +1,78 @@
+<%- include('partials/studenthead') %>
+<div class="container-fluid py-4 min-vh-100">
+  <div class="table-responsive">
+       
+    <div class="card">
+        <div class="table-responsive">
+          <table class="table align-items-center mb-0 e table-group-divider">
+            <thead class=" text-bg-success bg-success">
+              <tr class="align-middle text-center">
+               
+                <th class="text-uppercase text-sm font-weight-bolder opacity-7">Course Title</th>
+                <th class="text-uppercase text-sm font-weight-bolder opacity-7">Course Type</th>
+                <th class="text-uppercase text-sm font-weight-bolder opacity-7">COURSE PREREQUISITES	</th>
+                <th class="text-uppercase text-sm font-weight-bolder opacity-7 ps-2">PRE REQUISITE STATUS	</th>
+                <th class="text-center text-uppercase text-sm font-weight-bolder opacity-7">COURSE STATUS	</th>
+      
+               
+               
+              </tr>
+            </thead>
+            <tbody id="myTable">
+
+              <% allData.forEach(x => { %>
+                <tr class="align-middle text-center text-sm">
+
+                  <td>
+                  
+                      
+                      <div class="d-flex flex-column justify-content-center px-2 py-2">
+                        <h6 class="mb-0 text-sm "> <%= x.course_title %> </h6>
+                        <p class="text-xs text-secondary mb-0"><%= x.course_code %></p>
+                      </div>
+                  
+                  </td>
+                  <td>
+                    <p class="text-sm font-weight-bold mb-0"><%= x.course_type %></p>
+                   
+                  </td>
+                  
+                  <td>
+                    <% if (x.course_prerequisite) { %>
+                      <p class="text-sm font-weight-bold mb-0"><%= x.course_prerequisite%></p>
+                    <% } else{%>
+                      <p class="text-sm font-weight-bold mb-0">---</p>
+                      <% } %>
+                    
+                     
+                   
+                  </td>
+                  <td>
+                    
+                    <% if (x.course_prerequisite_status) { %>
+                      <p class="text-sm font-weight-bold mb-0"><%= x.course_prerequisite_status%></p>
+                    <% } else{%>
+                      <p class="text-sm font-weight-bold mb-0">---</p>
+                      <% } %>
+                  </td>
+                  <td>
+                    <p class="text-sm font-weight-bold mb-0"><%= x.status %></p>
+                   
+                  </td>
+                  
+                 
+                  
+                </tr>
+          
+              <% }) %>
+
+             
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+  </div>
+
+  </div>
+<%- include('partials/footer') %>
